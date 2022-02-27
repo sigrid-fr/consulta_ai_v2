@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "56527788971",
+    "project_id": "consulta-ai-de658",
+    "storage_bucket": "consulta-ai-de658.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:56527788971:android:b96d04ee16a0a0cb3f50ee",
+        "android_client_info": {
+          "package_name": "com.ifma.br.consulta_ai"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "56527788971-866laikfgkfjqqal2rpu72fe2gufgl1d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDrrgg9xdSG7RAUCYkFiiqil2Q4LFoL-_w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "56527788971-866laikfgkfjqqal2rpu72fe2gufgl1d.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "56527788971-58648u3iaqmclvvq2uja5b8uecs8f9i7.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.ifma.br.consultaAi"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
