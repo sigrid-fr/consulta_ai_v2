@@ -56,9 +56,6 @@ class _EmergencyCallState extends State<EmergencyCall> {
                           padding: EdgeInsets.symmetric(vertical: 15.0,horizontal: 5.0),
                           onPressed: () {
                             Navigator.pop(context);
-                            /*Navigator.push(
-                                  context,
-                                  MaterialPageRoute(builder: (context) => (Homie())));*/
                           },
                           shape:  RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(18.0),

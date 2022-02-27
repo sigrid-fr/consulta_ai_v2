@@ -1,7 +1,6 @@
+import 'package:consulta_ai/screens/home/Separator.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-import 'aboutList.dart';
 
 class CaregiverScreen extends StatelessWidget {
   @override
@@ -93,7 +92,7 @@ class _SecondPageState extends State<SecondPage> {
                     onTap: () {
                       Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => (AboutList())));
+                          MaterialPageRoute(builder: (context) => (Homie(index:0))));
                     },
                     child: Container(
                       margin: EdgeInsets.all(32),

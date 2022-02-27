@@ -1,4 +1,5 @@
 import 'package:consulta_ai/models/doctor.dart';
+import 'package:consulta_ai/screens/home/Separator.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
@@ -150,7 +151,9 @@ class _AppointmentState extends State<Appointment> {
                                 await DatabaseService(uid: user.uid).updateAppData(
                                     currentDate,currentAppTime,currentAppDoctor, currentAddress, currentDocNotes
                                 );
-                                Navigator.pop(context);
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(builder: (context) => (Homie(index:1))));
                               }
                               //
                             },

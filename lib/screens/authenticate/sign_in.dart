@@ -54,8 +54,8 @@ class _SignInState extends State<SignIn> {
       appBar: AppBar(
         backgroundColor: Colors.teal,
         centerTitle: true,
-        title: Text("Consulta Aí",
-          style: TextStyle(color: Colors.white, fontSize: 25.0),
+        title: Text("Login",
+          style: TextStyle(color: Colors.white, fontSize: 20.0),
         ),
       ),
       body: SingleChildScrollView(
@@ -134,7 +134,7 @@ class _SignInState extends State<SignIn> {
                             print(result);
                           }
                         },
-                        child: Text('ENTRAR', style:TextStyle(color: Colors.white, fontSize: 16),)
+                        child: Text('ENTRAR', style:TextStyle(color: Colors.white, fontSize: 15),)
                     ),
                   ),
                   SizedBox(height: 20.0,),

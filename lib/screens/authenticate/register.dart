@@ -90,7 +90,7 @@ class _RegisterState extends State<Register> {
         centerTitle: true,
         leading: IconButton(icon: Icon(Icons.arrow_back), onPressed: () => widget.toggleView(),),
         title: Text("Cadastro",
-          style: TextStyle(color: Colors.white, fontSize: 25.0),
+          style: TextStyle(color: Colors.white, fontSize: 20.0),
         ),
       ),
       body: SingleChildScrollView(
@@ -274,7 +274,7 @@ class _RegisterState extends State<Register> {
                           });
                         }
                       },
-                      child: Text('CADASTRAR', style:TextStyle(color: Colors.white, fontSize: 16),)
+                      child: Text('CADASTRAR', style:TextStyle(color: Colors.white, fontSize: 15),)
                   ),
                 ),
                 Text(error, style: TextStyle(color: Colors.red, fontSize: 14.0)),
