@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:consulta_ai/models/booking.dart';
 import 'package:consulta_ai/models/user.dart';
 import 'package:consulta_ai/screens/home/Separator.dart';
 import 'package:consulta_ai/services/database.dart';
 import 'authenticate/authenticate.dart';
 import 'home/Add_Medical.dart';
-import 'home/home.dart';
 
 class Wrapper extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
     final user = Provider.of<User>(context);
@@ -28,7 +27,6 @@ class Wrapper extends StatelessWidget {
               return Homie(index: 0,);
               }
           });
-  }
-  }
-
+        }
+      }
   }

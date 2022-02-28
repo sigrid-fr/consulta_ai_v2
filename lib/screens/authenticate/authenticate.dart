@@ -3,6 +3,7 @@ import 'package:consulta_ai/screens/authenticate/sign_in.dart';
 import 'package:flutter/material.dart';
 
 class Authenticate extends StatefulWidget {
+
   @override
   _AuthenticateState createState() => _AuthenticateState();
 }
