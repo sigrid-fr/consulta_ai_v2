@@ -205,7 +205,7 @@ class _PrincipalHomeState extends State<PrincipalHome> {
                     "Total: " + total,
                     style: TextStyle(
                       color: Colors.grey[600],
-                      fontSize: 14,
+                      fontSize: 14.5,
                     ),
                   ),
 
@@ -274,7 +274,7 @@ class _PrincipalHomeState extends State<PrincipalHome> {
                 name,
                 style: TextStyle(
                   color: Colors.grey[800],
-                  fontSize: 12,
+                  fontSize: 15,
                   fontWeight: FontWeight.bold,
                 ),
               ),

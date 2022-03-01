@@ -198,7 +198,7 @@ class _PrincipalState extends State<Principal> {
                     "Total: " + total,
                     style: TextStyle(
                       color: Colors.grey[600],
-                      fontSize: 14,
+                      fontSize: 14.5,
                     ),
                   ),
 
@@ -267,7 +267,7 @@ class _PrincipalState extends State<Principal> {
                 name,
                 style: TextStyle(
                   color: Colors.grey[800],
-                  fontSize: 12,
+                  fontSize: 15,
                   fontWeight: FontWeight.bold,
                 ),
               ),
