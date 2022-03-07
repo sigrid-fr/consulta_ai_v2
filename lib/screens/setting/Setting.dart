@@ -13,11 +13,12 @@ final AuthService _auth = AuthService();
 class Setting extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    var textScale = MediaQuery.of(context).textScaleFactor;
     return ListView(
       children: [
         SizedBox(
           width: double.infinity,
-          height: 70.0,
+          height: 70.0 * textScale + 20,
           child: DecoratedBox(
             decoration: BoxDecoration(border: Border(bottom: BorderSide(color: Colors.black45))),
             child: FlatButton(
@@ -41,8 +42,8 @@ class Setting extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text("Editar Perfil",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.grey[700]),),
-                          Text("Nome, CPF, Email, Telefone", style: TextStyle(fontSize: 15, color: Colors.grey[700])),
+                          Text("Editar Perfil", textScaleFactor: 1.0, style: TextStyle(fontSize: 19.2 * textScale,fontWeight: FontWeight.bold,color: Colors.grey[700]),),
+                          Text("Nome, CPF, Email, Telefone", textScaleFactor: 1.0, style: TextStyle(fontSize: 13 * textScale, color: Colors.grey[700])),
                         ],
                       ),
                     ),
@@ -60,7 +61,7 @@ class Setting extends StatelessWidget {
         ),
         SizedBox(
           width: double.infinity,
-          height: 70.0,
+          height: 70.0 * textScale + 20,
           child: DecoratedBox(
             decoration: BoxDecoration(border: Border(bottom: BorderSide(color: Colors.black45))),
             child: FlatButton(
@@ -84,8 +85,8 @@ class Setting extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text("Informações Médicas",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.grey[700]),),
-                          Text("Tipo sanguíneo, Doenças", style: TextStyle(fontSize: 15, color: Colors.grey[700])),
+                          Text("Informações Médicas", textScaleFactor: 1.0, style: TextStyle(fontSize: 19.2 * textScale,fontWeight: FontWeight.bold,color: Colors.grey[700]),),
+                          Text("Tipo sanguíneo, etc", textScaleFactor: 1.0, style: TextStyle(fontSize: 13 * textScale, color: Colors.grey[700])),
                         ],
                       ),
                     ),
@@ -105,7 +106,7 @@ class Setting extends StatelessWidget {
           opacity: 1.0,
           child: SizedBox(
             width: double.infinity,
-            height: 70.0,
+            height: 70.0 * textScale + 20,
             child: DecoratedBox(
               decoration: BoxDecoration(border: Border(bottom: BorderSide(color: Colors.black45))),
               child: FlatButton(
@@ -128,8 +129,8 @@ class Setting extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text("Adicionar Atendimento",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.grey[700]),),
-                            Text("Marque o seu atendimento", style: TextStyle(fontSize: 15, color: Colors.grey[700])),
+                            Text("Adicionar Atendimento", textScaleFactor: 1.0, style: TextStyle(fontSize: 19.2 * textScale,fontWeight: FontWeight.bold,color: Colors.grey[700]),),
+                            Text("Marque aqui", textScaleFactor: 1.0, style: TextStyle(fontSize: 13 * textScale, color: Colors.grey[700])),
                           ],
                         ),
                       ),
@@ -150,7 +151,7 @@ class Setting extends StatelessWidget {
           opacity: 1.0,
           child: SizedBox(
             width: double.infinity,
-            height: 70.0,
+            height: 70.0 * textScale + 20,
             child: DecoratedBox(
               decoration: BoxDecoration(border: Border(bottom: BorderSide(color: Colors.black45))),
               child: FlatButton(
@@ -173,8 +174,8 @@ class Setting extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text("Solicitações",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.grey[700]),),
-                            Text("Verifique suas solicitações", style: TextStyle(fontSize: 15, color: Colors.grey[700])),
+                            Text("Solicitações", textScaleFactor: 1.0, style: TextStyle(fontSize: 19.2 * textScale,fontWeight: FontWeight.bold,color: Colors.grey[700]),),
+                            Text("Verifique suas solicitações", textScaleFactor: 1.0, style: TextStyle(fontSize: 13 * textScale, color: Colors.grey[700])),
                           ],
                         ),
                       ),
@@ -195,7 +196,7 @@ class Setting extends StatelessWidget {
           opacity: 1.0,
           child: SizedBox(
             width: double.infinity,
-            height: 70.0,
+            height: 70.0 * textScale + 20,
             child: DecoratedBox(
               decoration: BoxDecoration(border: Border(bottom: BorderSide(color: Colors.black45))),
               child: FlatButton(
@@ -218,8 +219,8 @@ class Setting extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text("Especialidades",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.grey[700]),),
-                            Text("Faça a sua busca", style: TextStyle(fontSize: 15, color: Colors.grey[700])),
+                            Text("Especialidades", textScaleFactor: 1.0, style: TextStyle(fontSize: 19.2 * textScale,fontWeight: FontWeight.bold,color: Colors.grey[700]),),
+                            Text("Faça a sua busca", textScaleFactor: 1.0, style: TextStyle(fontSize: 13 * textScale, color: Colors.grey[700])),
                           ],
                         ),
                       ),
@@ -240,7 +241,7 @@ class Setting extends StatelessWidget {
           opacity: 1.0,
           child: SizedBox(
             width: double.infinity,
-            height: 70.0,
+            height: 70.0 * textScale + 20,
             child: DecoratedBox(
               decoration: BoxDecoration(border: Border(bottom: BorderSide(color: Colors.black45))),
               child: FlatButton(
@@ -263,8 +264,8 @@ class Setting extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text("Contato de Emergência",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.grey[700]),),
-                            Text("Ligue para alguém importante", style: TextStyle(fontSize: 15, color: Colors.grey[700])),
+                            Text("Contato de Emergência", textScaleFactor: 1.0, style: TextStyle(fontSize: 19.2 * textScale,fontWeight: FontWeight.bold,color: Colors.grey[700]),),
+                            Text("Ligue clicando aqui", textScaleFactor: 1.0, style: TextStyle(fontSize: 13 * textScale, color: Colors.grey[700])),
                           ],
                         ),
                       ),

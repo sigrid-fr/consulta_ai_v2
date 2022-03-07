@@ -12,7 +12,7 @@ class NoDataApp extends StatelessWidget {
           children: [
             Image.asset('asset/nodata.png',height:190.0),
             SizedBox(height:20.0),
-            Text("Registro(s) não encontrados",style: TextStyle(color: Colors.grey[700], fontSize: 20.0, fontWeight: FontWeight.bold)),
+            Text("Registro(s) não encontrados", textScaleFactor: 1.2, style: TextStyle(color: Colors.grey[700], fontSize: 20.0, fontWeight: FontWeight.bold)),
             SizedBox(height:20.0),
             RaisedButton(
                 color: Colors.teal,
@@ -21,7 +21,7 @@ class NoDataApp extends StatelessWidget {
                       context,
                       MaterialPageRoute(builder: (context) => (PrincipalHome())));
                 },
-                child: Text('Adicionar Nova Consulta', style:TextStyle(color: Colors.white,fontSize: 15.0),)
+                child: Text('Adicionar Nova Consulta', textScaleFactor: 1.2, style:TextStyle(color: Colors.white,fontSize: 15.0),)
             ),
           ],
         ),

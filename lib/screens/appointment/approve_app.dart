@@ -14,11 +14,12 @@ class okApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var textScale = MediaQuery.of(context).textScaleFactor;
     return Opacity(
       opacity: opacityValue,
       child: SizedBox(
         width: double.infinity,
-        height: 117.0,
+        height: 117.0 * textScale,
         child: DecoratedBox(
           decoration: BoxDecoration(border: Border(bottom: BorderSide(color: Colors.black45))),
           child: FlatButton(
@@ -50,18 +51,18 @@ class okApp extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(document["appDate"],style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.grey[700]),),
+                        Text(document["appDate"], textScaleFactor: 1.4, style: TextStyle(fontSize: 20 * textScale,fontWeight: FontWeight.bold,color: Colors.grey[700]),),
                         Row(
                           children: [
-                            Text(document["appTime"], style: TextStyle(fontSize: 12, color: Colors.grey[700])),
+                            Text(document["appTime"], textScaleFactor: 1.2, style: TextStyle(fontSize: 12, color: Colors.grey[700])),
                             SizedBox(width:5.0),
                             Text("|", style: TextStyle(fontSize: 15, color: Colors.grey[700])),
                             SizedBox(width:5.0),
-                            Text(document["appDoctor"], style: TextStyle(fontSize: 12, color: Colors.grey[700])),
+                            Text(document["appDoctor"], textScaleFactor: 1.2, style: TextStyle(fontSize: 12, color: Colors.grey[700])),
                           ],
                         ),
                         SizedBox(height:5),
-                        Text(document[choice].toUpperCase(), style: TextStyle(fontSize: 29, color: textColor,fontWeight: FontWeight.bold)),
+                        Text(document[choice].toUpperCase(), textScaleFactor: 1.3, style: TextStyle(fontSize: 29, color: textColor,fontWeight: FontWeight.bold)),
                       ],
                     ),
                   ),
