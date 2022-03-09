@@ -37,7 +37,7 @@ class Setting extends StatelessWidget {
                   Expanded(
                     flex: 2,
                     child: Padding(
-                      padding:  const EdgeInsets.fromLTRB(0, 15.0, 0.0, 10.0),
+                      padding:  const EdgeInsets.fromLTRB(0, 25.0, 0.0, 10.0),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -80,7 +80,7 @@ class Setting extends StatelessWidget {
                   Expanded(
                     flex: 2,
                     child: Padding(
-                      padding:  const EdgeInsets.fromLTRB(0, 15.0, 0.0, 10.0),
+                      padding:  const EdgeInsets.fromLTRB(0, 25.0, 0.0, 10.0),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -124,7 +124,7 @@ class Setting extends StatelessWidget {
                     Expanded(
                       flex: 2,
                       child: Padding(
-                        padding:  const EdgeInsets.fromLTRB(0, 15.0, 0.0, 10.0),
+                        padding:  const EdgeInsets.fromLTRB(0, 25.0, 0.0, 10.0),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -169,7 +169,7 @@ class Setting extends StatelessWidget {
                     Expanded(
                       flex: 2,
                       child: Padding(
-                        padding:  const EdgeInsets.fromLTRB(0, 15.0, 0.0, 10.0),
+                        padding:  const EdgeInsets.fromLTRB(0, 25.0, 0.0, 10.0),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -214,7 +214,7 @@ class Setting extends StatelessWidget {
                     Expanded(
                       flex: 2,
                       child: Padding(
-                        padding:  const EdgeInsets.fromLTRB(0, 15.0, 0.0, 10.0),
+                        padding:  const EdgeInsets.fromLTRB(0, 25.0, 0.0, 10.0),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -259,7 +259,7 @@ class Setting extends StatelessWidget {
                     Expanded(
                       flex: 2,
                       child: Padding(
-                        padding:  const EdgeInsets.fromLTRB(0, 15.0, 0.0, 10.0),
+                        padding:  const EdgeInsets.fromLTRB(0, 25.0, 0.0, 10.0),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,

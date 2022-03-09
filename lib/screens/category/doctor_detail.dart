@@ -13,6 +13,7 @@ class DoctorDetail extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var textScale = MediaQuery.of(context).textScaleFactor;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
@@ -36,7 +37,7 @@ class DoctorDetail extends StatelessWidget {
                   ),
                   Container(
                     width: MediaQuery.of(context).size.width - 222,
-                    height: 220,
+                    height: 220 * textScale,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.start,

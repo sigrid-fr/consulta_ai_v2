@@ -10,6 +10,7 @@ class CategoryList extends StatelessWidget {
 
    @override
   Widget build(BuildContext context) {
+    var textScale = MediaQuery.of(context).textScaleFactor;
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -43,7 +44,6 @@ class CategoryList extends StatelessWidget {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-
           Padding(
             padding: EdgeInsets.only(right: 16, left: 16, top: 16, bottom: 32),
             child: Row(
@@ -58,11 +58,11 @@ class CategoryList extends StatelessWidget {
 
           Expanded(
             child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16),
+              padding: EdgeInsets.symmetric(horizontal: 36),
               child: GridView.count(
                 physics: BouncingScrollPhysics(),
                 childAspectRatio: 1 / 1.55,
-                crossAxisCount: 2,
+                crossAxisCount: 1,
                 crossAxisSpacing: 15,
                 children: getDoctorList().where((i) => i.category == category).map((item) {
                   return DoctorWidget(
@@ -73,7 +73,6 @@ class CategoryList extends StatelessWidget {
               ),
             ),
           ),
-
         ],
       ),
     );
@@ -104,6 +103,7 @@ class CategoryList extends StatelessWidget {
         children: [
           Text(
             name,
+            textScaleFactor: 1.3,
             style: TextStyle(
               fontSize: 14,
               fontWeight: FontWeight.bold,

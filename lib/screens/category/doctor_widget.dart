@@ -11,6 +11,7 @@ class DoctorWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var textScale = MediaQuery.of(context).textScaleFactor;
     return GestureDetector(
       onTap: () {
         Navigator.push(
@@ -67,7 +68,7 @@ class DoctorWidget extends StatelessWidget {
 
                   Container(
                     decoration: BoxDecoration(
-                      color: doctor.condition == "Manha" ? Colors.green[100] : doctor.condition == "Tarde" ? Colors.orange[100] : Colors.blue[100],
+                      color: doctor.condition == "Manhã" ? Colors.green[100] : doctor.condition == "Tarde" ? Colors.orange[100] : Colors.blue[100],
                       borderRadius: BorderRadius.all(
                         Radius.circular(10),
                       ),
@@ -75,8 +76,9 @@ class DoctorWidget extends StatelessWidget {
                     padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                     child: Text(
                       doctor.condition,
+                      textScaleFactor: 1.2 * textScale,
                       style: TextStyle(
-                        color: doctor.condition == "Manha" ? Colors.green : doctor.condition == "Tarde" ? Colors.orange : Colors.blue,
+                        color: doctor.condition == "Manhã" ? Colors.green : doctor.condition == "Tarde" ? Colors.orange : Colors.blue,
                         fontWeight: FontWeight.bold,
                         fontSize: 12,
                       ),
@@ -89,6 +91,7 @@ class DoctorWidget extends StatelessWidget {
 
                   Text(
                     doctor.name,
+                    textScaleFactor: 1.25,
                     style: TextStyle(
                       color: Colors.grey[800],
                       fontSize: 18,
@@ -114,9 +117,10 @@ class DoctorWidget extends StatelessWidget {
 
                       Text(
                         doctor.district,
+                        textScaleFactor: 1.2,
                         style: TextStyle(
                           color: Colors.grey[600],
-                          fontSize: 11,
+                          fontSize: 11.5 * textScale,
                         ),
                       ),
 
@@ -126,9 +130,10 @@ class DoctorWidget extends StatelessWidget {
 
                       Text(
                         "(" + doctor.distance + "km)",
+                        textScaleFactor: 1.2,
                         style: TextStyle(
                           color: Colors.grey[600],
-                          fontSize: 11,
+                          fontSize: 11 * textScale,
                           fontWeight: FontWeight.bold,
                         ),
                       ),

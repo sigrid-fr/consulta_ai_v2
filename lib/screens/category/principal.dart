@@ -1,4 +1,5 @@
 import 'package:consulta_ai/models/doctor.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'category_list.dart';
 import 'doctor_widget.dart';
@@ -14,6 +15,7 @@ class _PrincipalState extends State<Principal> {
 
   @override
   Widget build(BuildContext context) {
+    var textScale = MediaQuery.of(context).textScaleFactor;
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
@@ -22,7 +24,7 @@ class _PrincipalState extends State<Principal> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: EdgeInsets.all(16),
+              padding: EdgeInsets.all(13),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
@@ -35,7 +37,7 @@ class _PrincipalState extends State<Principal> {
             ),
 
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 8),
+              padding: EdgeInsets.symmetric(horizontal: 6 * textScale),
               child: Column(
                 children: [
                   Row(
@@ -64,8 +66,9 @@ class _PrincipalState extends State<Principal> {
 
                   Text(
                     "Cadastrados Recentemente",
+                    textScaleFactor: 1.3,
                     style: TextStyle(
-                      fontSize: 18,
+                      fontSize: 19,
                       fontWeight: FontWeight.bold,
                       color: Colors.grey[800],
                     ),
@@ -80,7 +83,7 @@ class _PrincipalState extends State<Principal> {
             ),
 
             Container(
-              height: 280,
+              height: 280 * textScale,
               child: ListView(
                 physics: BouncingScrollPhysics(),
                 scrollDirection: Axis.horizontal,
@@ -89,15 +92,16 @@ class _PrincipalState extends State<Principal> {
             ),
 
             Padding(
-              padding: EdgeInsets.only(right: 16, left: 16, bottom: 16),
+              padding: EdgeInsets.only(top: 16, right: 16, left: 16, bottom: 16),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
 
                   Text(
-                    "UPAS Perto de Você",
+                    "Upas Perto de Você",
+                    textScaleFactor: 1.3,
                     style: TextStyle(
-                      fontSize: 18,
+                      fontSize: 19,
                       fontWeight: FontWeight.bold,
                       color: Colors.grey[800],
                     ),
@@ -113,19 +117,18 @@ class _PrincipalState extends State<Principal> {
             ),
 
             Container(
-              height: 130,
+              height: 130 * textScale,
               margin: EdgeInsets.only(bottom: 16),
               child: PageView(
                 physics: BouncingScrollPhysics(),
                 children: [
-                  buildUpa("asset/upas/upa_vinhais.jpg", "UPA do Vinhais", "(98) 3246-0531"),
-                  buildUpa("asset/upas/upa_araçagy.jpg", "UPA do Araçagy", "(98) 3226-9700"),
-                  buildUpa("asset/upas/upa_cidadeoperaria.jpg", "UPA da Cidade Operária", " (98) 3247-6429"),
-                  buildUpa("asset/upas/upa_vilaluizao.jpg", "Upa Vila Luizão", " (98) 3233-0665"),
+                  buildUpa("asset/upas/upa_vinhais.jpg", "Vinhais", "(98) 3246-0531"),
+                  buildUpa("asset/upas/upa_araçagy.jpg", "Araçagy", "(98) 3226-9700"),
+                  buildUpa("asset/upas/upa_cidadeoperaria.jpg", "Cidade Operária", " (98) 3247-6429"),
+                  buildUpa("asset/upas/upa_vilaluizao.jpg", "Vila Luizão", " (98) 3233-0665"),
                 ],
               ),
             ),
-
           ],
         ),
       ),
@@ -133,6 +136,7 @@ class _PrincipalState extends State<Principal> {
   }
 
   Widget buildDoctorCategory(Category category, String total, Color color){
+    var textScale = MediaQuery.of(context).textScaleFactor;
     return Expanded(
       child: GestureDetector(
         onTap: () {
@@ -142,7 +146,7 @@ class _PrincipalState extends State<Principal> {
           );
         },
         child: Container(
-          height: 120,
+          height: 120 * textScale,
           padding: EdgeInsets.all(12),
           margin: EdgeInsets.all(8),
           decoration: BoxDecoration(
@@ -158,7 +162,7 @@ class _PrincipalState extends State<Principal> {
             children: [
 
               Container(
-                height: 56,
+                height: 56 * textScale,
                 width: 56,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
@@ -166,7 +170,7 @@ class _PrincipalState extends State<Principal> {
                 ),
                 child: Center(
                   child: SizedBox(
-                    height: 30,
+                    height: 30 * textScale,
                     width: 30,
                     child: Image.asset(
                       "asset/categorias/" + (category == Category.CUIDADOR ? "cuidador" : category == Category.PERSONAL ? "personal" : category == Category.GERIATRA ? "geriatria" : "enfermeiro") + ".png",
@@ -184,9 +188,9 @@ class _PrincipalState extends State<Principal> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-
                   Text(
                     category == Category.CUIDADOR ? "Cuidador" : category == Category.PERSONAL ? "Personal" : category == Category.GERIATRA ? "Geriatra" : "Enfermeiro",
+                    textScaleFactor: 1.1,
                     style: TextStyle(
                       color: Colors.grey[800],
                       fontSize: 15,
@@ -196,15 +200,14 @@ class _PrincipalState extends State<Principal> {
 
                   Text(
                     "Total: " + total,
+                    textScaleFactor: 1.1,
                     style: TextStyle(
                       color: Colors.grey[600],
                       fontSize: 14.5,
                     ),
                   ),
-
                 ],
               ),
-
             ],
           ),
         ),
@@ -228,6 +231,7 @@ class _PrincipalState extends State<Principal> {
   }
 
   Widget buildUpa(String imageUrl, String name, String phone){
+    var textScale = MediaQuery.of(context).textScaleFactor;
     return Container(
       margin: EdgeInsets.only(left: 16, right: 16, bottom: 16, top: 4),
       padding: EdgeInsets.all(16),
@@ -244,7 +248,7 @@ class _PrincipalState extends State<Principal> {
         children: [
 
           Container(
-            height: 98,
+            height: 98 * textScale,
             width: 98,
             decoration: BoxDecoration(
               image: DecorationImage(
@@ -265,9 +269,10 @@ class _PrincipalState extends State<Principal> {
 
               Text(
                 name,
+                textScaleFactor: 1.2,
                 style: TextStyle(
                   color: Colors.grey[800],
-                  fontSize: 15,
+                  fontSize: 13 * textScale,
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -291,9 +296,10 @@ class _PrincipalState extends State<Principal> {
 
                   Text(
                     phone,
+                    textScaleFactor: 1.2,
                     style: TextStyle(
                       color: Colors.grey[800],
-                      fontSize: 14,
+                      fontSize: 12 * textScale,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -322,7 +328,6 @@ class _PrincipalState extends State<Principal> {
                   ),
                 ),
               ),
-
             ],
           ),
         ],

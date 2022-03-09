@@ -19,7 +19,7 @@ class okApp extends StatelessWidget {
       opacity: opacityValue,
       child: SizedBox(
         width: double.infinity,
-        height: 117.0 * textScale,
+        height: 119.0 * textScale,
         child: DecoratedBox(
           decoration: BoxDecoration(border: Border(bottom: BorderSide(color: Colors.black45))),
           child: FlatButton(
@@ -51,7 +51,7 @@ class okApp extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(document["appDate"], textScaleFactor: 1.4, style: TextStyle(fontSize: 20 * textScale,fontWeight: FontWeight.bold,color: Colors.grey[700]),),
+                        Text(document["appDate"], textScaleFactor: 1.3, style: TextStyle(fontSize: 18 * textScale,fontWeight: FontWeight.bold,color: Colors.grey[700]),),
                         Row(
                           children: [
                             Text(document["appTime"], textScaleFactor: 1.2, style: TextStyle(fontSize: 12, color: Colors.grey[700])),
@@ -62,7 +62,7 @@ class okApp extends StatelessWidget {
                           ],
                         ),
                         SizedBox(height:5),
-                        Text(document[choice].toUpperCase(), textScaleFactor: 1.3, style: TextStyle(fontSize: 29, color: textColor,fontWeight: FontWeight.bold)),
+                        Text(document[choice].toUpperCase(), textScaleFactor: 1.2, style: TextStyle(fontSize: 30, color: textColor,fontWeight: FontWeight.bold)),
                       ],
                     ),
                   ),

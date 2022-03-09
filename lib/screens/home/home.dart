@@ -3,7 +3,6 @@ import 'package:consulta_ai/screens/category/principal_home.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:consulta_ai/models/user.dart';
-import 'package:consulta_ai/screens/function/Appointment.dart';
 import 'package:consulta_ai/screens/home/Emergency.dart';
 import 'package:consulta_ai/screens/home/Separator.dart';
 import 'package:consulta_ai/services/database.dart';
@@ -31,6 +30,7 @@ class _HomeState extends State<Home> {
             UserData userData = snapshot.data;
             return SingleChildScrollView(
              child: Container (
+             //height: textScale,
               margin: EdgeInsets.symmetric(horizontal: 3.0, vertical: 2.0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -189,7 +189,7 @@ class _HomeState extends State<Home> {
                       SizedBox(height: 8.0),
                       SizedBox(
                         width: double.infinity,
-                        height: 80.0 * textScale + 32,
+                        height: 80.0 * textScale + 18,
                         child: DecoratedBox(
                           decoration: BoxDecoration(
                               color: Colors.orangeAccent[400],
@@ -216,16 +216,16 @@ class _HomeState extends State<Home> {
                                     CrossAxisAlignment.start,
                                     children: [
                                       Text(
-                                        "Sobre as Especialidades",
+                                        "Especialidades",
                                         textScaleFactor: 1.0,
                                         style: TextStyle(
-                                            fontSize: 20.4 * textScale,
+                                            fontSize: 20.5 * textScale,
                                             fontWeight: FontWeight.bold,
                                             color: Colors.white),
                                       ),
                                       SizedBox(height:7.0),
-                                      Text("Papel dos profissionais",
-                                          textScaleFactor: 0.76,
+                                      Text("Entenda o papel dos profissionais",
+                                          textScaleFactor: 0.8,
                                           style: TextStyle(
                                               fontSize: 19 * textScale,
                                               color: Colors.white)
