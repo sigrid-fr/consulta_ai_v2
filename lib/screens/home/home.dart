@@ -9,6 +9,7 @@ import 'package:consulta_ai/services/database.dart';
 import 'package:consulta_ai/shared/loading.dart';
 
 class Home extends StatefulWidget {
+
   @override
   _HomeState createState() => _HomeState();
 }
@@ -64,7 +65,7 @@ class _HomeState extends State<Home> {
                         height: 80.0 * textScale + 18,
                         child: DecoratedBox(
                           decoration: BoxDecoration(
-                              color: Colors.redAccent[400],
+                              color: Colors.pink[600],
                               borderRadius: BorderRadius.circular(10.0)),
                           child: Row(
                             children: [
@@ -128,7 +129,7 @@ class _HomeState extends State<Home> {
                         height: 80.0 * textScale + 18,
                         child: DecoratedBox(
                           decoration: BoxDecoration(
-                              color: Colors.pinkAccent[200],
+                              color: Colors.pinkAccent[400],
                               borderRadius: BorderRadius.circular(10.0)),
                           child: Row(
                             children: [
@@ -192,7 +193,7 @@ class _HomeState extends State<Home> {
                         height: 80.0 * textScale + 18,
                         child: DecoratedBox(
                           decoration: BoxDecoration(
-                              color: Colors.orangeAccent[400],
+                              color: Colors.orange[900],
                               borderRadius: BorderRadius.circular(10.0)),
                           child: Row(
                             children: [
@@ -259,7 +260,7 @@ class _HomeState extends State<Home> {
                         height: 80.0 * textScale + 18,
                         child: DecoratedBox(
                           decoration: BoxDecoration(
-                              color: Colors.blueAccent[400],
+                              color: Colors.blue[600],
                               borderRadius: BorderRadius.circular(10.0)),
                           child: FlatButton(
                             onLongPress: () {
@@ -282,7 +283,7 @@ class _HomeState extends State<Home> {
                                   flex: 2,
                                   child: Padding(
                                     padding: const EdgeInsets.fromLTRB(
-                                        0, 13.0, 0.0, 10.0),
+                                        0, 20.0, 0.0, 10.0),
                                     child: Column(
                                       mainAxisAlignment: MainAxisAlignment.start,
                                       crossAxisAlignment:

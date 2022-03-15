@@ -1,7 +1,5 @@
-import 'package:consulta_ai/screens/category/principal.dart';
 import 'package:consulta_ai/screens/category/principal_home.dart';
 import 'package:flutter/material.dart';
-import 'package:consulta_ai/screens/function/Appointment.dart';
 import 'package:consulta_ai/screens/home/Emergency.dart';
 import 'package:consulta_ai/screens/home/Separator.dart';
 import 'package:consulta_ai/screens/setting/Edit_Profile.dart';
@@ -11,6 +9,8 @@ import 'package:consulta_ai/services/auth.dart';
 final AuthService _auth = AuthService();
 
 class Setting extends StatelessWidget {
+  Color _bgColor = Colors.blue;
+
   @override
   Widget build(BuildContext context) {
     var textScale = MediaQuery.of(context).textScaleFactor;
