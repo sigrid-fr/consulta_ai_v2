@@ -21,7 +21,7 @@ class NoDataApp extends StatelessWidget {
                       context,
                       MaterialPageRoute(builder: (context) => (PrincipalHome())));
                 },
-                child: Text('Adicionar Nova Consulta', textScaleFactor: 1.2, style:TextStyle(color: Colors.white,fontSize: 15.0),)
+                child: Text('Novo Atendimento', textScaleFactor: 1.2, style:TextStyle(color: Colors.white,fontSize: 15.0),)
             ),
           ],
         ),

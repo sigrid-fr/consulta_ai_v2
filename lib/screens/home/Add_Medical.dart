@@ -164,7 +164,7 @@ class _AddMedicalState extends State<AddMedical> {
                                   labelText: "Peso"),
                               keyboardType: TextInputType.number,
                               controller: _weightController,
-                              maxLength: 4,
+                              maxLength: 5,
                               inputFormatters: [
                                 FilteringTextInputFormatter.digitsOnly,
                                 PesoInputFormatter(),
