@@ -12,7 +12,7 @@ class DatabaseService {
   // collection reference
   final CollectionReference personal_Info = Firestore.instance.collection('personal_info');
 
-  Future<void> updateUserData(String username,String name, String age, String cpf,String tel, String etel) async {
+  Future<void> updateUserData(String username,String name, String age, String cpf,String tel, String etel, String address) async {
     return await personal_Info.document(uid).setData({
       'username': username,
       'name': name,
@@ -20,12 +20,12 @@ class DatabaseService {
       'cpf': cpf,
       'tel': tel,
       'etel': etel,
-      //'app_date': null,
+      'address': address,
+      'app_date': null,
       'short_comment': null,
       'first': true,
     });
   }
-
 
   // user data from snapshots
   UserData _userDataFromSnapshot(DocumentSnapshot snapshot) {
@@ -37,8 +37,9 @@ class DatabaseService {
       cpf: snapshot.data['cpf'],
       tel: snapshot.data['tel'],
       etel: snapshot.data['etel'],
+      address: snapshot.data['address'],
       first: snapshot.data["first"],
-      //appointmentDate: snapshot.data["app_date"] ?? null,
+      appointmentDate: snapshot.data["app_date"] ?? null,
       short_comment: snapshot.data["short_comment"] ?? null,
     );
   }
@@ -88,32 +89,35 @@ class DatabaseService {
   }
 
   // Appointment collection reference
-  // Collection - update Appointment Data
-  Future<void> updateAppData(var appDate, String appTime, String appDoctor, String address, String doc_note) async {
-    final String formatAppDate = DateFormat("dd-MM-yyyy").format(DateTime.now());
+  // Collection - Atualizar agendamentos
+  Future<void> updateAppData(DateTime appDate, String appTime, String appDoctor, String appCategory, String doc_note) async {
+    final DateFormat formatter = DateFormat('dd-MM-yyyy');
+    final String formatAppDate = formatter.format(appDate);
     await personal_Info.document(uid).updateData({
       'app_date': appDate,
     });
-    return await Firestore.instance.collection("appointment_"+uid).document(appTime).setData({
-      'appDate': appDate,
+    return await Firestore.instance.collection("appointment_"+uid).document(formatAppDate).setData({
+      'appDate': formatAppDate,
       'appTime': appTime,
       'appDoctor': appDoctor,
-      'address': address,
+      'appCategory': appCategory,
       'doc_note': doc_note,
+      'month': appDate.month,
       'status': 'pendente',
     });
   }
+
   // brew list from snapshot
   List<Booking> _bookingFromSnapshot(QuerySnapshot snapshot) {
     return snapshot.documents.map((doc){
       print(doc.data);
       return Booking(
         app_date: doc.data['appDate'] ?? DateTime.now(),
-        app_time: doc.data['appTime'] ?? "10:03 (10:30am)",
+        app_time: doc.data['appTime'] ?? "10:03 (10:30)",
         doctor: doc.data['appDoctor'] ?? "Procurando um médico",
-        address: doc.data['address'] ?? "Rua Portugal, Nº400",
+        category: doc.data['appCategory'] ?? "Enfermeiro",
         doc_note: doc.data['doc_note'] ?? '',
-        //month: doc.data['month'],
+        month: doc.data['month'],
         status: doc.data['status'],
       );
     }).toList();
@@ -126,12 +130,13 @@ class DatabaseService {
   }
 
   //Health Report
-  Future<void> updateHealthReport(String appTime,String medicine,String medicine1,String medicine2,String quantity,String quantity1,String quantity2,String shortComment,String docComment) async {
-    final String formatAppDate = DateFormat("dd-MM-yyyy").format(DateTime.now());
+  Future<void> updateHealthReport(String appDate, String medicine,String medicine1,String medicine2,String quantity,String quantity1,String quantity2,String shortComment,String docComment) async {
+    //final DateFormat formatter = DateFormat('dd-MM-yyyy');
+    //final String formatAppDate = formatter.format(appDate);
     await personal_Info.document(uid).updateData({
       'short_comment': shortComment,
     });
-    return await Firestore.instance.collection("appointment_"+uid).document(appTime).updateData({
+    return await Firestore.instance.collection("appointment_"+uid).document(appDate).updateData({
       'medicine': medicine,
       'medicine1': medicine1,
       'medicine2': medicine2,

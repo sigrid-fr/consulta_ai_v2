@@ -3,9 +3,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:consulta_ai/models/user.dart';
-import 'package:consulta_ai/screens/home/Separator.dart';
 import 'package:consulta_ai/services/database.dart';
 import 'package:consulta_ai/shared/loading.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class EmergencyCall extends StatefulWidget {
   @override
@@ -30,53 +30,46 @@ class _EmergencyCallState extends State<EmergencyCall> {
                     children: [
                       SizedBox(height: 300.0,),
                       Center(child: Text('LIGAÇÃO DE EMERGÊNCIA',style: TextStyle(fontSize: 15.0,color: Colors.grey[500],fontWeight: FontWeight.bold),)),
+                      SizedBox(height: 20.0,),
                       Center(
                         child: Text('${userData.etel}',style: TextStyle(fontSize: 40.0,color: Colors.white,fontWeight: FontWeight.bold),),
                       ),
-                      FadeAnimatedTextKit(
-                        duration: Duration(milliseconds: 5000),
-                        isRepeatingAnimation: false,
-                        onTap: () {
-                          print("Tap Event");
-                        },
-                        text: [
-                          "Ligando...",
-                          "Conectando!!",
-                        ],
-                        textStyle: TextStyle(
-                            fontSize: 15.0,
-                            color: Colors.grey[500]
-                        ),
-                        textAlign: TextAlign.center,
-                      ),
-                      SizedBox(height: 30.0,),
+                      SizedBox(height: 40.0,),
                       SizedBox(
-                        width: 320.0,
-                        child: RawMaterialButton(
-                          padding: EdgeInsets.symmetric(vertical: 15.0,horizontal: 5.0),
-                          onPressed: () {
-                            Navigator.pop(context);
-                          },
-                          shape:  RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(18.0),
-                              side: BorderSide(color: Colors.red)
-                          ),
-                          fillColor: Colors.deepOrange[500],
+                        width: 420.0,
+                        child: Container(
+                          margin: EdgeInsets.symmetric(vertical: 0.0,horizontal: 10.0),
                           child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              Icon(
-                                Icons.call_end,
-                                size: 30.0,
-                                color: Colors.grey[200],
+                              ButtonTheme(
+                                minWidth: 145.0,
+                                height: 65.0,
+                                child: RaisedButton(
+                                    color: Colors.green[500],
+                                    onPressed: () async{
+                                      launch(('tel://${userData.etel}'));
+                                      Navigator.pop(context);
+                                    },
+                                    child: Text('Ligar', style:TextStyle(color: Colors.white, fontSize: 18),)
+                                ),
                               ),
-                              SizedBox(width: 15.0,),
-                              Text('Cancelar',style: TextStyle(fontSize: 20.0,color: Colors.grey[200],fontWeight: FontWeight.bold),),
-                            ],
+                              ButtonTheme(
+                                minWidth: 145.0,
+                                height: 65.0,
+                                child: RaisedButton(
+                                    color: Colors.deepOrange,
+                                    onPressed: () async{
+                                      Navigator.pop(context);
+                                    },
+                                    child: Text('Cancelar', style:TextStyle(color: Colors.white, fontSize: 18),)
+                                ),
+                              ),
+                              ],
+                            ),
                           ),
-                        ),
-                      ),
+                      )
                     ],
                   ),
                 ),

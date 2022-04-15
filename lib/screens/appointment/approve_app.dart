@@ -2,14 +2,17 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:consulta_ai/screens/appointment/app_details.dart';
 import 'package:consulta_ai/screens/appointment/health_report.dart';
+import 'package:intl/intl.dart';
 import 'app_accepted_request.dart';
 
 class okApp extends StatelessWidget {
+
   final DocumentSnapshot document;
   final double opacityValue;
   final String currentImage;
   final Color textColor;
   final String choice;
+
   okApp({this.document,this.opacityValue,this.currentImage,this.textColor,this.choice});
 
   @override
@@ -19,7 +22,7 @@ class okApp extends StatelessWidget {
       opacity: opacityValue,
       child: SizedBox(
         width: double.infinity,
-        height: 119.0 * textScale,
+        height: 150.0 * textScale,
         child: DecoratedBox(
           decoration: BoxDecoration(border: Border(bottom: BorderSide(color: Colors.black45))),
           child: FlatButton(
@@ -51,18 +54,21 @@ class okApp extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(document["appDate"], textScaleFactor: 1.3, style: TextStyle(fontSize: 18 * textScale,fontWeight: FontWeight.bold,color: Colors.grey[700]),),
+                        Text("Data "+document["appDate"].toString(), textScaleFactor: 1.3, style: TextStyle(fontSize: 18 * textScale,fontWeight: FontWeight.bold,color: Colors.grey[700]),),
+                        SizedBox(height:5),
                         Row(
                           children: [
-                            Text(document["appTime"], textScaleFactor: 1.2, style: TextStyle(fontSize: 12, color: Colors.grey[700])),
+                            Text(document["appTime"]+"h", textScaleFactor: 1.3, style: TextStyle(fontSize: 13.5, color: Colors.grey[700])),
                             SizedBox(width:5.0),
                             Text("|", style: TextStyle(fontSize: 15, color: Colors.grey[700])),
                             SizedBox(width:5.0),
-                            Text(document["appDoctor"], textScaleFactor: 1.2, style: TextStyle(fontSize: 12, color: Colors.grey[700])),
+                            Text(document["appDoctor"], textScaleFactor: 1.3, style: TextStyle(fontSize: 13.5, color: Colors.grey[700])),
                           ],
                         ),
                         SizedBox(height:5),
-                        Text(document[choice].toUpperCase(), textScaleFactor: 1.2, style: TextStyle(fontSize: 30, color: textColor,fontWeight: FontWeight.bold)),
+                        Text("Especialidade: "+document["appCategory"], textScaleFactor: 1.3, style: TextStyle(fontSize: 13.5, color: Colors.grey[700])),
+                        SizedBox(height:5),
+                        Text(document[choice].toUpperCase(), textScaleFactor: 1.2, style: TextStyle(fontSize: 28, color: textColor,fontWeight: FontWeight.bold)),
                       ],
                     ),
                   ),

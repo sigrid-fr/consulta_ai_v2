@@ -174,8 +174,8 @@ class Setting extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text("Solicitações", textScaleFactor: 1.0, style: TextStyle(fontSize: 19.2 * textScale,fontWeight: FontWeight.bold,color: Colors.grey[700]),),
-                            Text("Verifique suas solicitações", textScaleFactor: 1.0, style: TextStyle(fontSize: 13 * textScale, color: Colors.grey[700])),
+                            Text("Agendamentos", textScaleFactor: 1.0, style: TextStyle(fontSize: 19.2 * textScale,fontWeight: FontWeight.bold,color: Colors.grey[700]),),
+                            Text("Verifique seus agendamentos", textScaleFactor: 1.0, style: TextStyle(fontSize: 13 * textScale, color: Colors.grey[700])),
                           ],
                         ),
                       ),

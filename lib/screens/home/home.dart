@@ -54,10 +54,10 @@ class _HomeState extends State<Home> {
                       ),
                       SizedBox(height: 20.0),
                       Text(
-                        "Itens",
+                        "Bem vindo(a) ${userData.username}",
                         textScaleFactor: 1.1,
                         style: TextStyle(
-                            fontSize: 20.0 * textScale, fontWeight: FontWeight.bold),
+                            fontSize: 19.0 * textScale, fontWeight: FontWeight.bold),
                       ),
                       SizedBox(height: 20.0),
                       SizedBox(
@@ -65,8 +65,85 @@ class _HomeState extends State<Home> {
                         height: 80.0 * textScale + 18,
                         child: DecoratedBox(
                           decoration: BoxDecoration(
+                              color: Colors.pinkAccent[400],
+                              borderRadius: BorderRadius.circular(10.0)),
+                          child: FlatButton(
+                            onPressed: (){
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => (PrincipalHome())));
+                            },
+                            child: Row(
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.fromLTRB(
+                                      15, 5.0, 20.0, 10.0),
+                                  child: Icon(
+                                    Icons.calendar_today_rounded,
+                                    color: Colors.white,
+                                    size: 30.0,
+                                  ),
+                                ),
+                                Expanded(
+                                  flex: 2,
+                                  child: Padding(
+                                    padding: const EdgeInsets.fromLTRB(
+                                        0, 13.0, 0.0, 10.0),
+                                    child: Column(
+                                      mainAxisAlignment: MainAxisAlignment.start,
+                                      crossAxisAlignment:
+                                      CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          "Atendimentos",
+                                          textScaleFactor: 1.0,
+                                          style: TextStyle(
+                                              fontSize: 20.5 * textScale,
+                                              fontWeight: FontWeight.bold,
+                                              color: Colors.white),
+                                        ),
+                                        SizedBox(height:7.0),
+                                        Text("Marque um novo atendimento",
+                                            textScaleFactor: 0.8,
+                                            style: TextStyle(
+                                                fontSize: 19 * textScale,
+                                                color: Colors.white)),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                                FlatButton(
+                                    minWidth: 40.0,
+                                    height: 50.0 * textScale,
+                                    onPressed: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(builder: (context) => (PrincipalHome())));
+                                    },
+                                    child: Icon(
+                                      Icons.chevron_right,
+                                      size: 30.0,
+                                      color: Colors.white,
+                                    )),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: 10.0),
+                      SizedBox(
+                        width: double.infinity,
+                        height: 80.0 * textScale + 18,
+                        child: DecoratedBox(
+                          decoration: BoxDecoration(
                               color: Colors.pink[600],
                               borderRadius: BorderRadius.circular(10.0)),
+                          child: FlatButton(
+                            onPressed: (){
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => (Homie(index:1))));
+                            },
                           child: Row(
                             children: [
                               Padding(
@@ -89,7 +166,7 @@ class _HomeState extends State<Home> {
                                     CrossAxisAlignment.start,
                                     children: [
                                       Text(
-                                        "Solicitações",
+                                        "Agendamentos",
                                         textScaleFactor: 1.0,
                                         style: TextStyle(
                                             fontSize: 20.5 * textScale,
@@ -97,7 +174,7 @@ class _HomeState extends State<Home> {
                                             color: Colors.white),
                                       ),
                                       SizedBox(height:7.0),
-                                      Text("Consulte o status das solicitações",
+                                      Text("Consulte o status dos agendamentos",
                                           textScaleFactor: 0.8,
                                           style: TextStyle(
                                               fontSize: 19 * textScale,
@@ -122,6 +199,7 @@ class _HomeState extends State<Home> {
                             ],
                           ),
                         ),
+                       ),
                       ),
                       SizedBox(height: 10.0),
                       SizedBox(
@@ -129,72 +207,14 @@ class _HomeState extends State<Home> {
                         height: 80.0 * textScale + 18,
                         child: DecoratedBox(
                           decoration: BoxDecoration(
-                              color: Colors.pinkAccent[400],
-                              borderRadius: BorderRadius.circular(10.0)),
-                          child: Row(
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.fromLTRB(
-                                    15, 5.0, 20.0, 10.0),
-                                child: Icon(
-                                  Icons.calendar_today_rounded,
-                                  color: Colors.white,
-                                  size: 30.0,
-                                ),
-                              ),
-                              Expanded(
-                                flex: 2,
-                                child: Padding(
-                                  padding: const EdgeInsets.fromLTRB(
-                                      0, 13.0, 0.0, 10.0),
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    crossAxisAlignment:
-                                    CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        "Atendimentos",
-                                        textScaleFactor: 1.0,
-                                        style: TextStyle(
-                                            fontSize: 20.5 * textScale,
-                                            fontWeight: FontWeight.bold,
-                                            color: Colors.white),
-                                      ),
-                                      SizedBox(height:7.0),
-                                      Text("Marque um novo atendimento",
-                                          textScaleFactor: 0.8,
-                                          style: TextStyle(
-                                              fontSize: 19 * textScale,
-                                              color: Colors.white)),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                              FlatButton(
-                                  minWidth: 40.0,
-                                  height: 50.0 * textScale,
-                                  onPressed: () {
-                                    Navigator.push(
-                                        context,
-                                        MaterialPageRoute(builder: (context) => (PrincipalHome())));
-                                  },
-                                  child: Icon(
-                                    Icons.chevron_right,
-                                    size: 30.0,
-                                    color: Colors.white,
-                                  )),
-                            ],
-                          ),
-                        ),
-                      ),
-                      SizedBox(height: 8.0),
-                      SizedBox(
-                        width: double.infinity,
-                        height: 80.0 * textScale + 18,
-                        child: DecoratedBox(
-                          decoration: BoxDecoration(
                               color: Colors.orange[900],
                               borderRadius: BorderRadius.circular(10.0)),
+                          child: FlatButton(
+                            onPressed: (){
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => (AboutList())));
+                            },
                           child: Row(
                             children: [
                               Padding(
@@ -250,6 +270,7 @@ class _HomeState extends State<Home> {
                                   )),
                             ],
                           ),
+                         ),
                         ),
                       ),
                       SizedBox(
@@ -313,7 +334,7 @@ class _HomeState extends State<Home> {
                         ),
                       ),
                       SizedBox(
-                        height: 7.0,
+                        height: 10.0,
                       ),
                     ],
                   ),

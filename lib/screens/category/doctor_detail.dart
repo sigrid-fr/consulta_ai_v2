@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:consulta_ai/models/doctor.dart';
 import 'package:flutter/painting.dart';
 import '../../models/doctor.dart';
-import 'category_list.dart';
 
 class DoctorDetail extends StatelessWidget {
 
@@ -46,12 +45,18 @@ class DoctorDetail extends StatelessWidget {
                           doctor.name,
                           style: TextStyle(fontSize: 24),
                         ),
+                        SizedBox(height: 10,),
                         Text(
                           (doctor.category == Category.ENFERMEIRO ? "Enfermeiro" : doctor.category == Category.CUIDADOR ? "Cuidador" : doctor.category == Category.GERIATRA ? "Geriatra" : "Personal"),
-                          style: TextStyle(fontSize: 19, color: Colors.grey),
+                          style: TextStyle(fontSize: 19, color: Colors.grey, fontWeight: FontWeight.w500),
+                        ),
+                        SizedBox(height: 10,),
+                        Text(
+                          doctor.register,
+                          style: TextStyle(fontSize: 15, fontWeight: FontWeight.w500),
                         ),
                         SizedBox(
-                          height: 40,
+                          height: 30,
                         ),
                         Row(
                           children: <Widget>[
@@ -149,7 +154,7 @@ class DoctorDetail extends StatelessWidget {
                                   width: MediaQuery.of(context).size.width - 268,
                                   child: Text(
                                     "Segunda - Sexta\n"
-                                    "Manhã: 8-11h\n"
+                                    "Manhã: 8-12h\n"
                                     "Tarde: 15-17h",
                                     style: TextStyle(color: Colors.grey),
                                   ))
@@ -202,6 +207,7 @@ class DoctorDetail extends StatelessWidget {
                     child: Container(
                       child: GestureDetector(
                         onTap: () {
+                          Navigator.of(context).pop();
                           Navigator.push(
                               context,
                               MaterialPageRoute(builder: (context) => (Appointment(doctor))));
@@ -216,7 +222,7 @@ class DoctorDetail extends StatelessWidget {
                           ),
                           child: Center(
                             child: Text(
-                              "Solicitar",
+                              "Agendar",
                               style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 17

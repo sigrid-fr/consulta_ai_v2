@@ -34,12 +34,12 @@ class _HomieState extends State<Homie> {
       AppBar(title: Text("Consulta Aí"),
         backgroundColor: Colors.teal,
         centerTitle: true,
-        actions: [RaisedButton.icon(onPressed: (){_auth.signOut();},
+        actions: [RaisedButton.icon(onPressed: (){Navigator.pushNamedAndRemoveUntil(context, "/", (_) => false); _auth.signOut();},
           icon: Icon(Icons.exit_to_app,size: 25.0,color: Colors.white,),
           label: Text("Sair",textScaleFactor: 1.2,style: TextStyle(fontSize: 17.0, color:Colors.white),),
           color: Colors.teal,)],
       ),
-      AppBar(title: Text("Solicitações"),backgroundColor: Colors.teal, centerTitle: true,
+      AppBar(title: Text("Agendamentos"),backgroundColor: Colors.teal, centerTitle: true,
         leading: FlatButton(child: Icon(Icons.keyboard_arrow_left,size: 30.0,color: Colors.white,),
           minWidth: 20.0,
           onPressed: (){setState(() {
@@ -77,7 +77,7 @@ class _HomieState extends State<Homie> {
         currentIndex: currentIndex,
         items: [
           BottomNavigationBarItem(icon:Icon(Icons.home),title:Text("Início", textScaleFactor: 1.3) ),
-          BottomNavigationBarItem(icon:Icon(Icons.list_rounded),title:Text("Solicitações", textScaleFactor: 1.3)),
+          BottomNavigationBarItem(icon:Icon(Icons.list_rounded),title:Text("Agendamentos", textScaleFactor: 1.3)),
           BottomNavigationBarItem(icon:Icon(Icons.search_sharp),title:Text("Especialidades", textScaleFactor: 1.3)),
           BottomNavigationBarItem(icon:Icon(Icons.settings),title:Text("Configurações", textScaleFactor: 1.3)),
         ],

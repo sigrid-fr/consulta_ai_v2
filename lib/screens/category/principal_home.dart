@@ -33,12 +33,7 @@ class _PrincipalHomeState extends State<PrincipalHome> {
               padding: EdgeInsets.all(16),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Icon(
-                    Icons.more_horiz,
-                    color: Colors.grey[800],
-                  ),
-                ],
+                children: [],
               ),
             ),
 
@@ -79,11 +74,6 @@ class _PrincipalHomeState extends State<PrincipalHome> {
                       color: Colors.grey[800],
                     ),
                   ),
-
-                  Icon(
-                    Icons.more_horiz,
-                    color: Colors.grey[800],
-                  ),
                 ],
               ),
             ),
@@ -112,12 +102,6 @@ class _PrincipalHomeState extends State<PrincipalHome> {
                       color: Colors.grey[800],
                     ),
                   ),
-
-                  Icon(
-                    Icons.more_horiz,
-                    color: Colors.grey[800],
-                  ),
-
                 ],
               ),
             ),

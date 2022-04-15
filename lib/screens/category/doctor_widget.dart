@@ -94,7 +94,27 @@ class DoctorWidget extends StatelessWidget {
                     textScaleFactor: 1.25,
                     style: TextStyle(
                       color: Colors.grey[800],
-                      fontSize: 18,
+                      fontSize: 17,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+
+                  SizedBox(
+                    height: 8,
+                  ),
+
+                  Text(
+                    doctor.category ==
+                        Category.CUIDADOR ? "Cuidador(a)" :
+                        doctor.category == Category.PERSONAL
+                        ? "Personal"
+                        : doctor.category == Category.GERIATRA
+                        ? "Geriatra"
+                        : "Enfermeiro(a)",
+                    textScaleFactor: 1.25,
+                    style: TextStyle(
+                      color: Colors.grey[700],
+                      fontSize: 13 * textScale,
                       fontWeight: FontWeight.bold,
                     ),
                   ),

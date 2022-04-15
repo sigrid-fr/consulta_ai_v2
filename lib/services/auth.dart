@@ -14,7 +14,6 @@ class AuthService {
   // auth change user stream
   Stream<User> get user {
     return _auth.onAuthStateChanged
-      //.map((FirebaseUser user) => _userFromFirebaseUser(user));
       .map(_userFromFirebaseUser);
   }
 
@@ -24,7 +23,7 @@ class AuthService {
       AuthResult result = await _auth.signInAnonymously();
       FirebaseUser user = result.user;
       // create a new document for the user with the uid
-      await DatabaseService(uid: user.uid).updateUserData("Muhammad Ali","Muhammad Ali","32","880808-02-5369","Progeria","012-4450010");
+      await DatabaseService(uid: user.uid).updateUserData("Teste 01","Teste","40","(98)98766-5544","123.543.123-00","(98)98766-1345", "Rua general Vargas, Nº 534");
       return _userFromFirebaseUser(user);
     } catch (e) {
       print(e.toString());
@@ -45,12 +44,12 @@ class AuthService {
   }
 
   // register with email and password
-  Future registerWithEmailAndPassword(String email,String password,String username,String name, String age, String disease,String tel, String Etel) async {
+  Future registerWithEmailAndPassword(String email,String password,String username,String name, String age, String cpf,String tel, String Etel, String address) async {
     try {
       AuthResult result = await _auth.createUserWithEmailAndPassword(email: email, password: password);
       FirebaseUser user = result.user;
       // create a new document for the user with the uid
-      await DatabaseService(uid: user.uid).updateUserData(username,name,age,disease,tel,Etel);
+      await DatabaseService(uid: user.uid).updateUserData(username,name,age,cpf,tel,Etel,address);
       return _userFromFirebaseUser(user);
     } catch (error) {
       print(error.toString());
@@ -59,9 +58,10 @@ class AuthService {
   }
 
   // sign out
-  Future signOut() async {
+  Future <void> signOut() async {
     try {
       return await _auth.signOut();
+      //await _auth.signOut();
     } catch (error) {
       print(error.toString());
       return null;

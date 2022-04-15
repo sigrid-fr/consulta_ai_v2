@@ -1,3 +1,4 @@
+import 'package:url_launcher/url_launcher.dart';
 import 'package:consulta_ai/models/doctor.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -24,15 +25,10 @@ class _PrincipalState extends State<Principal> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: EdgeInsets.all(13),
+              padding: EdgeInsets.all(16),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Icon(
-                    Icons.more_horiz,
-                    color: Colors.grey[800],
-                  ),
-                ],
+                children: [],
               ),
             ),
 
@@ -73,11 +69,6 @@ class _PrincipalState extends State<Principal> {
                       color: Colors.grey[800],
                     ),
                   ),
-
-                  Icon(
-                    Icons.more_horiz,
-                    color: Colors.grey[800],
-                  ),
                 ],
               ),
             ),
@@ -106,12 +97,6 @@ class _PrincipalState extends State<Principal> {
                       color: Colors.grey[800],
                     ),
                   ),
-
-                  Icon(
-                    Icons.more_horiz,
-                    color: Colors.grey[800],
-                  ),
-
                 ],
               ),
             ),
@@ -299,7 +284,7 @@ class _PrincipalState extends State<Principal> {
                     textScaleFactor: 1.2,
                     style: TextStyle(
                       color: Colors.grey[800],
-                      fontSize: 12 * textScale,
+                      fontSize: 13 * textScale,
                       fontWeight: FontWeight.bold,
                     ),
                   ),

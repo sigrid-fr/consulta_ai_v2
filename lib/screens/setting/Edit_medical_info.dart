@@ -14,7 +14,7 @@ class Edit_Medical_Info extends StatefulWidget {
   _Edit_Medical_InfoState createState() => _Edit_Medical_InfoState();
 }
 
-final _formKey = GlobalKey<FormState>();
+//final _formKey2 = GlobalKey<FormState>();
 class _Edit_Medical_InfoState extends State<Edit_Medical_Info> {
 
   String currentMedicalRecord;
@@ -54,7 +54,7 @@ class _Edit_Medical_InfoState extends State<Edit_Medical_Info> {
                 child: Container(
                   padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 40.0),
                   child: Form(
-                    key:_formKey,
+                    //key:_formKey2,
                     child: Column(
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -133,7 +133,7 @@ class _Edit_Medical_InfoState extends State<Edit_Medical_Info> {
                                         decoration: const InputDecoration(
                                             hintText: "Altura"),
                                         keyboardType: TextInputType.number,
-                                        maxLength: 3,
+                                        maxLength: 4,
                                         inputFormatters: [
                                           FilteringTextInputFormatter.digitsOnly,
                                           AlturaInputFormatter(),
@@ -155,7 +155,7 @@ class _Edit_Medical_InfoState extends State<Edit_Medical_Info> {
                                       decoration: const InputDecoration(
                                           hintText: "Peso"),
                                       keyboardType: TextInputType.number,
-                                      maxLength: 3,
+                                      maxLength: 5,
                                       inputFormatters: [
                                         FilteringTextInputFormatter.digitsOnly,
                                         PesoInputFormatter(),

@@ -14,10 +14,8 @@ class AddMedical extends StatefulWidget {
 }
 
 class _AddMedicalState extends State<AddMedical> {
-  final _formKey = GlobalKey<FormState>();
-  final scaffoldKey = new GlobalKey<ScaffoldState>();
-  TextEditingController _heightController = TextEditingController();
-  TextEditingController _weightController = TextEditingController();
+  //final _formKey = GlobalKey<FormState>();
+  //final _scaffoldKey = new GlobalKey<ScaffoldState>();
 
   bool loading = false;
   String currentMedicalRecord = '';
@@ -26,28 +24,29 @@ class _AddMedicalState extends State<AddMedical> {
   String currentHeight = '';
   String currentWeight = '';
   String currentDisease = '';
+  bool _validate = false;
 
   final List<String> bloodType = ['A+', 'AB+', 'O+','B+', 'A-', 'AB-', 'O-','B-'];
   String currentBloodType = 'A+';
 
-  //Botão que valida e envia os dados
-  Future<void> _submitForm() async {
-    final FormState form = _formKey.currentState;
-
-    if (_heightController == null) {
-      showMessage("Por favor, digite sua altura!", Colors.orange);
-    }
-    if (_weightController == null) {
-      showMessage("Por favor, digite seu peso!", Colors.orange);
+  String _validarPeso(String value) {
+    if (value.length == 0) {
+      return "Digite seu Peso";
+    } else if(value.length < 2){
+      return "O peso deve ter ao menos 2 dígitos";
     }else {
-      showMessage('Dados salvos com sucesso!', Colors.green);
+      return null;
     }
   }
 
-  //Mostra mensagens em caso de campos inválidos
-  void showMessage(String message, [MaterialColor color = Colors.red]) {
-    scaffoldKey.currentState.showSnackBar(
-        new SnackBar(backgroundColor: color, content: new Text(message)));
+  String _validarAltura(String value) {
+    if (value.length == 0) {
+      return "Digite sua Altura";
+    } else if(value.length < 4){
+      return "A altura deve ter ao menos 3 dígitos";
+    }else {
+      return null;
+    }
   }
 
   @override
@@ -66,7 +65,8 @@ class _AddMedicalState extends State<AddMedical> {
         child: Container(
           padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 40.0),
           child: Form(
-            key:_formKey,
+            //key:_formKey,
+            autovalidate: _validate,
             child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -141,13 +141,12 @@ class _AddMedicalState extends State<AddMedical> {
                                 decoration: const InputDecoration(
                                     labelText: "Altura"),
                                 keyboardType: TextInputType.number,
-                                controller: _heightController,
                                 maxLength: 4,
                                 inputFormatters: [
                                   FilteringTextInputFormatter.digitsOnly,
                                   AlturaInputFormatter(),
                                 ],
-                                validator: (val) => val.isEmpty ? 'A altura tem que ser > 0' : null,
+                                validator: _validarAltura,
                                 onChanged: (val){
                                   setState(() {
                                     currentHeight = val;
@@ -163,13 +162,12 @@ class _AddMedicalState extends State<AddMedical> {
                               decoration: const InputDecoration(
                                   labelText: "Peso"),
                               keyboardType: TextInputType.number,
-                              controller: _weightController,
                               maxLength: 5,
                               inputFormatters: [
                                 FilteringTextInputFormatter.digitsOnly,
                                 PesoInputFormatter(),
                               ],
-                              validator: (val) => val.isEmpty ? 'O peso tem que ser > 0' : null,
+                              validator: _validarPeso,
                               onChanged: (val){
                                 setState(() {
                                   currentWeight = val;
@@ -203,9 +201,10 @@ class _AddMedicalState extends State<AddMedical> {
                     child: RaisedButton(
                         color: Colors.teal,
                         onPressed: () async{
-                          _submitForm();
+                          _validate = true;
                           await DatabaseService(uid: user.uid).updateMedicData(currentMedicalRecord, currentAllergies, currentMedicine, currentBloodType, currentHeight, currentWeight, currentDisease);
                           await DatabaseService(uid: user.uid).notFirstTime();
+                          Navigator.of(context).pop();
                           Navigator.push(
                             context,
                             MaterialPageRoute(builder: (context) => Wrapper()),

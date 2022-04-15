@@ -56,19 +56,21 @@ class AppDetails extends StatelessWidget {
                               style: TextStyle(color: Colors.black, fontSize: 25.0, fontWeight: FontWeight.bold)),
                         ),
                         SizedBox(height: 20.0,),
-                        Text("Detalhes do Atendimento",style: TextStyle(color: Colors.grey[700], fontSize: 20.0, fontWeight: FontWeight.bold)),
+                        Text("Detalhes do Atendimento",style: TextStyle(color: Colors.grey[700], fontSize: 21.0, fontWeight: FontWeight.bold)),
                         SizedBox(height:10.0),
-                        Text("Nome: ${userData.name}",style: TextStyle(color: Colors.grey[700], fontSize: 15.0,fontWeight: FontWeight.w300)),
+                        Text("Nome: ${userData.name}",style: TextStyle(color: Colors.grey[700], fontSize: 17.0,fontWeight: FontWeight.w400)),
                         SizedBox(height:5.0),
-                        Text("Data: ${document["appDate"]}",style: TextStyle(color: Colors.grey[700], fontSize: 15.0,fontWeight: FontWeight.w300)),
+                        Text("Data: ${document["appDate"]}", style: TextStyle(color: Colors.grey[700], fontSize: 17.0,fontWeight: FontWeight.w400)),
                         SizedBox(height:5.0),
-                        Text("Hora: ${document["appTime"]}",style: TextStyle(color: Colors.grey[700], fontSize: 15.0,fontWeight: FontWeight.w300)),
+                        Text("Hora: ${document["appTime"]+"h"}",style: TextStyle(color: Colors.grey[700], fontSize: 17.0,fontWeight: FontWeight.w400)),
                         SizedBox(height:5.0),
-                        Text("Local: ${document["address"]}", style: TextStyle(color: Colors.grey[700], fontSize: 15.0,fontWeight: FontWeight.w300)),
+                        Text("Endereço: ${userData.address}", style: TextStyle(color: Colors.grey[700], fontSize: 17.0,fontWeight: FontWeight.w400)),
                         SizedBox(height:5.0),
-                        Text("Profissional: ${document["appDoctor"]}", style: TextStyle(color: Colors.grey[700], fontSize: 15.0,fontWeight: FontWeight.w300)),
+                        Text("Profissional: ${document["appDoctor"]}", style: TextStyle(color: Colors.grey[700], fontSize: 17.0,fontWeight: FontWeight.w400)),
+                        SizedBox(height:5.0),
+                        Text("Especialidade: ${document["appCategory"]}", style: TextStyle(color: Colors.grey[700], fontSize: 17.0,fontWeight: FontWeight.w400)),
                         SizedBox(height:20.0),
-                        Text("Detalhes da Recomendação",style: TextStyle(color: Colors.grey[700], fontSize: 20.0, fontWeight: FontWeight.bold)),
+                        Text("Detalhes da Recomendação",style: TextStyle(color: Colors.grey[700], fontSize: 21.0, fontWeight: FontWeight.bold)),
                         SizedBox(height:10.0),
                         SizedBox(height:20.0),
                         Padding(
@@ -241,7 +243,7 @@ class AppDetails extends StatelessWidget {
                                   color: Colors.green[500],
                                   onPressed: () async{
                                     if(_formKey.currentState.validate()){
-                                     await DatabaseService(uid:user.uid).updateHealthReport(document["appTime"], currentMedicine, currentMedicine1,
+                                     await DatabaseService(uid:user.uid).updateHealthReport(document["appDate"], currentMedicine, currentMedicine1,
                                          currentMedicine2, currentQuantity, currentQuantity1, currentQuantity2, currentShortComment, currentComment);
                                       Navigator.pop(context);
                                     }

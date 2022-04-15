@@ -11,26 +11,25 @@ class EditProfile extends StatefulWidget {
   @override
   _EditProfileState createState() => _EditProfileState();
 }
-final _formKey = GlobalKey<FormState>();
+//final _formKey3 = GlobalKey<FormState>();
 
 class _EditProfileState extends State<EditProfile> {
 
-  final scaffoldKey = new GlobalKey<ScaffoldState>();
+//final scaffoldKey = new GlobalKey<ScaffoldState>();
 
   @override
   String error = '';
-  String currentBloodType;
   String currentUsername;
   String currentFullName;
   String currentAge;
   String currentCPF;
   String currentTel;
   String currentETel;
+  String currentAddress;
   bool loading = false;
 
   Widget build(BuildContext context) {
     final user = Provider.of<User>(context);
-
 
     return StreamBuilder<UserData>(
         stream: DatabaseService(uid: user.uid).userData,
@@ -56,7 +55,7 @@ class _EditProfileState extends State<EditProfile> {
                 child: Container(
                   padding: EdgeInsets.symmetric(vertical: 5.0, horizontal: 40.0),
                   child: Form(
-                    key:_formKey,
+                    //key:_formKey3,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -176,17 +175,31 @@ class _EditProfileState extends State<EditProfile> {
                           },
                         ),
                         SizedBox(height: 20.0,),
-                        Text('TELEFONE',style: TextStyle(fontSize: 12.0,color: Colors.grey[500],fontWeight: FontWeight.bold),),
+                        Text('ENDEREÇO',style: TextStyle(fontSize: 12.0,color: Colors.grey[500],fontWeight: FontWeight.bold),),
+                        TextFormField(
+                          initialValue: userData.address,
+                          decoration: InputDecoration(hintText: 'Rua, número, bairro, referência'),
+                          //decoration: textDecoration.copyWith(hintText: 'Password'),
+                          validator: (val)=>(val.length<3 && val.length >13) ? 'Digite o seu endereço' : null,
+                          onChanged: (val){
+                            setState(() {
+                              currentAddress = val;
+                            });
+                            print(val);
+                          },
+                        ),
+                        SizedBox(height: 20.0,),
+                        Text('CELULAR',style: TextStyle(fontSize: 12.0,color: Colors.grey[500],fontWeight: FontWeight.bold),),
                         TextFormField(
                           initialValue: userData.tel,
-                          decoration: InputDecoration(hintText: 'Nº de Telefone'),
+                          decoration: InputDecoration(hintText: 'Nº de Celular'),
                           keyboardType: TextInputType.number,
                           maxLength: 15,
                           inputFormatters: [
                             FilteringTextInputFormatter.digitsOnly,
                             TelefoneInputFormatter(),
                           ],
-                          validator: (val)=>(val.isEmpty) ? 'Digite o seu nº de telefone.' : null,
+                          validator: (val)=>(val.isEmpty) ? 'Digite o seu nº de celular.' : null,
                           onChanged: (val){
                             setState(() {
                               currentTel = val;
@@ -195,10 +208,10 @@ class _EditProfileState extends State<EditProfile> {
                           },
                         ),
                         SizedBox(height: 20.0,),
-                        Text('TELEFONE DE EMERGÊNCIA',style: TextStyle(fontSize: 12.0,color: Colors.grey[500],fontWeight: FontWeight.bold),),
+                        Text('CELULAR DE EMERGÊNCIA',style: TextStyle(fontSize: 12.0,color: Colors.grey[500],fontWeight: FontWeight.bold),),
                         TextFormField(
                           initialValue: userData.etel,
-                          decoration: InputDecoration(hintText: 'Telefone de Emergência'),
+                          decoration: InputDecoration(hintText: 'Celular de Emergência'),
                           keyboardType: TextInputType.number,
                           maxLength: 15,
                           inputFormatters: [
@@ -232,6 +245,7 @@ class _EditProfileState extends State<EditProfile> {
                                       currentCPF ?? snapshot.data.cpf,
                                       currentTel ?? snapshot.data.tel,
                                       currentETel ?? snapshot.data.etel,
+                                      currentAddress ?? snapshot.data.address,
                                     );
                                     await DatabaseService(uid: user.uid).notFirstTime();
                                     Navigator.pop(context);
@@ -241,7 +255,7 @@ class _EditProfileState extends State<EditProfile> {
                               RaisedButton(
                                   color: Colors.deepOrange,
                                   onPressed: () async{
-                                    //await DatabaseService(uid: user.uid).updateUserData(currentUsername,currentFullName,currentAge,currentIC,currentDisease,currentTel,currentETel,currentIdentity);
+                                    //await DatabaseService(uid: user.uid).updateUserData(currentUsername,currentFullName,currentTel,currentETel);
                                     //await DatabaseService(uid: user.uid).notFirstTime();
                                     Navigator.pop(context);
                                   },

@@ -15,36 +15,35 @@ class SignIn extends StatefulWidget {
 class _SignInState extends State<SignIn> {
 
   final AuthService _auth = AuthService();
-  final _formKey = GlobalKey<FormState>();
-  final scaffoldKey = new GlobalKey<ScaffoldState>();
-  TextEditingController _emailController = TextEditingController();
-  TextEditingController _passwordController = TextEditingController();
+  //final _formKey = GlobalKey<FormState>();
+  //final scaffoldKey = new GlobalKey<ScaffoldState>();
   String error = '';
   bool loading = false;
+  bool _validate = false;
   // text field state
   String email = '';
   String password = '';
 
-  //Botão que valida e envia os dados
-  Future<void> _submitForm() async {
-    final FormState form = _formKey.currentState;
-    if (_emailController == null ) {
-      showMessage("Por favor, digite seu email!", Colors.orange);
-    }
-    if (_passwordController == null) {
-      showMessage("Por favor, digite sua senha!", Colors.orange);
-    }
-    if (!form.validate()) {
-      showMessage ('Por favor, verifique os campos e tente novamente.', Colors.orange);
-    } else {
-      showMessage('Dados salvos com sucesso!', Colors.green);
+  String _validarEmail(String value) {
+    String pattern = r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
+    RegExp regExp = new RegExp(pattern);
+    if (value.length == 0) {
+      return "Digite o seu Email";
+    } else if(!regExp.hasMatch(value)){
+      return "Email inválido!";
+    }else {
+      return null;
     }
   }
 
-  //Mostra mensagens em caso de campos inválidos
-  void showMessage(String message, [MaterialColor color = Colors.red]) {
-    scaffoldKey.currentState.showSnackBar(
-        new SnackBar(backgroundColor: color, content: new Text(message)));
+  String _validarSenha(String value) {
+    if (value.length == 0) {
+      return "Digite sua Senha";
+    } else if(value.length < 6){
+      return "A senha deve ter ao menos 6 caracteres";
+    }else {
+      return null;
+    }
   }
 
   @override
@@ -62,7 +61,8 @@ class _SignInState extends State<SignIn> {
         child: Container(
             padding: EdgeInsets.symmetric(vertical: 12.0, horizontal: 50.0),
             child: Form(
-              key: _formKey,
+              //key: _formKey,
+              autovalidate: _validate,
               child: Column(
                 children: <Widget>[
                   Image.asset('asset/sign_in.jpg',height:270.0),
@@ -70,8 +70,8 @@ class _SignInState extends State<SignIn> {
                   TextFormField(
                     decoration: InputDecoration(labelText: "Email"),
                     keyboardType: TextInputType.emailAddress,
-                    controller: _emailController,
-                    validator: (val) => val.isEmpty ? 'Digite o seu email' : null,
+                    //controller: _emailController,
+                    validator: _validarEmail,
                     onChanged: (val){
                       setState(() {
                         email = val;
@@ -84,8 +84,8 @@ class _SignInState extends State<SignIn> {
                     decoration: InputDecoration(labelText: "Senha"),
                     maxLength: 15,
                     keyboardType: TextInputType.text,
-                    controller: _passwordController,
-                    validator: (val)=>val.length < 6 ? 'Digite uma senha com mais de 6 caracteres' : null,
+                    //controller: _passwordController,
+                    validator: _validarSenha,
                     obscureText: true,
                     onChanged: (val){
                       setState(() {
@@ -103,7 +103,7 @@ class _SignInState extends State<SignIn> {
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(20)),
                         onPressed: () async{
-                          _submitForm();
+                          _validate = true;
                           print(email);
                           print(password);
                           setState(() {
